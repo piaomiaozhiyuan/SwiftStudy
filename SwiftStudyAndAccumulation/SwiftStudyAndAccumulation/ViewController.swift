@@ -12,7 +12,14 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let string: NSString? = ""
+        let string1: NSString? = nil
+        let string2: NSString? = "111"
+        print("\(string.isEmpty)")
+        print("\(string1.isEmpty)")
+        print("\(string2.isEmpty)")
+        
     }
 
     override func didReceiveMemoryWarning() {

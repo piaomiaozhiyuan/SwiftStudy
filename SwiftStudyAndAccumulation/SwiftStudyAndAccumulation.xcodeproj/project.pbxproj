@@ -15,6 +15,8 @@
 		84BB08131E8F90D200E88C5E /* SwiftStudyAndAccumulationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BB08121E8F90D200E88C5E /* SwiftStudyAndAccumulationTests.swift */; };
 		84BB081E1E8F90D200E88C5E /* SwiftStudyAndAccumulationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BB081D1E8F90D200E88C5E /* SwiftStudyAndAccumulationUITests.swift */; };
 		84BB082D1E8F917600E88C5E /* UINavigationControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BB082C1E8F917600E88C5E /* UINavigationControllerExtensions.swift */; };
+		84BB082F1E8F96A400E88C5E /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BB082E1E8F96A400E88C5E /* StringExtensions.swift */; };
+		84BB08311E8F978200E88C5E /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BB08301E8F978200E88C5E /* URLExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		84BB081D1E8F90D200E88C5E /* SwiftStudyAndAccumulationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftStudyAndAccumulationUITests.swift; sourceTree = "<group>"; };
 		84BB081F1E8F90D200E88C5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84BB082C1E8F917600E88C5E /* UINavigationControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtensions.swift; sourceTree = "<group>"; };
+		84BB082E1E8F96A400E88C5E /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		84BB08301E8F978200E88C5E /* URLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				84BB082C1E8F917600E88C5E /* UINavigationControllerExtensions.swift */,
+				84BB082E1E8F96A400E88C5E /* StringExtensions.swift */,
+				84BB08301E8F978200E88C5E /* URLExtensions.swift */,
 			);
 			name = extensions;
 			sourceTree = "<group>";
@@ -273,7 +279,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84BB082F1E8F96A400E88C5E /* StringExtensions.swift in Sources */,
 				84BB08001E8F90D200E88C5E /* ViewController.swift in Sources */,
+				84BB08311E8F978200E88C5E /* URLExtensions.swift in Sources */,
 				84BB082D1E8F917600E88C5E /* UINavigationControllerExtensions.swift in Sources */,
 				84BB07FE1E8F90D200E88C5E /* AppDelegate.swift in Sources */,
 			);
@@ -431,6 +439,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NMY2CS6TU6;
 				INFOPLIST_FILE = SwiftStudyAndAccumulation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.piaomiao.SwiftStudyAndAccumulation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -444,6 +453,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = NMY2CS6TU6;
 				INFOPLIST_FILE = SwiftStudyAndAccumulation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.piaomiao.SwiftStudyAndAccumulation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
