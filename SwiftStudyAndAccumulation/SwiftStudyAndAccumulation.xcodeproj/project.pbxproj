@@ -12,6 +12,7 @@
 		849F935E1E976A7200CDE58F /* UINavigationControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849F935B1E976A7200CDE58F /* UINavigationControllerExtensions.swift */; };
 		849F935F1E976A7200CDE58F /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849F935C1E976A7200CDE58F /* URLExtensions.swift */; };
 		849F93621E976BE800CDE58F /* CGImageStudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849F93611E976BE800CDE58F /* CGImageStudyViewController.swift */; };
+		849F93641E9784E100CDE58F /* CGImageStudyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849F93631E9784E100CDE58F /* CGImageStudyManager.swift */; };
 		84BB07FE1E8F90D200E88C5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BB07FD1E8F90D200E88C5E /* AppDelegate.swift */; };
 		84BB08001E8F90D200E88C5E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BB07FF1E8F90D200E88C5E /* ViewController.swift */; };
 		84BB08031E8F90D200E88C5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84BB08011E8F90D200E88C5E /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		849F935B1E976A7200CDE58F /* UINavigationControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtensions.swift; sourceTree = "<group>"; };
 		849F935C1E976A7200CDE58F /* URLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLExtensions.swift; sourceTree = "<group>"; };
 		849F93611E976BE800CDE58F /* CGImageStudyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGImageStudyViewController.swift; sourceTree = "<group>"; };
+		849F93631E9784E100CDE58F /* CGImageStudyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGImageStudyManager.swift; sourceTree = "<group>"; };
 		84BB07FA1E8F90D200E88C5E /* SwiftStudyAndAccumulation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftStudyAndAccumulation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84BB07FD1E8F90D200E88C5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84BB07FF1E8F90D200E88C5E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				849F93611E976BE800CDE58F /* CGImageStudyViewController.swift */,
+				849F93631E9784E100CDE58F /* CGImageStudyManager.swift */,
 			);
 			name = CGImageStudy;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				849F935F1E976A7200CDE58F /* URLExtensions.swift in Sources */,
 				849F935D1E976A7200CDE58F /* StringExtensions.swift in Sources */,
 				849F93531E97688600CDE58F /* BaseViewController.m in Sources */,
+				849F93641E9784E100CDE58F /* CGImageStudyManager.swift in Sources */,
 				84BB08001E8F90D200E88C5E /* ViewController.swift in Sources */,
 				84BB07FE1E8F90D200E88C5E /* AppDelegate.swift in Sources */,
 			);

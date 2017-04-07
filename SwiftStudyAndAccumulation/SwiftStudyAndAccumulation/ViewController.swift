@@ -83,13 +83,11 @@ class ViewController: BaseViewController, UITableViewDelegate, UITableViewDataSo
 }
 
 
+/// 模块模型
 struct ModuleModel {
     let vc: UIViewController?
     let title: String?
     let description: String?
 }
 
-class ModuleModel1: NSObject {
-    
-}
 
