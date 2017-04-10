@@ -33,9 +33,10 @@ class ViewController: BaseViewController, UITableViewDelegate, UITableViewDataSo
     func initData() {
         var arraySection: Array<ModuleModel> = []
         
+        /**这么写有个问题，viewcontroller返回的时候，不会被销毁；但是这里为了写的方便暂时这么操作。*/
         // 学习CGImage
         let model: ModuleModel = ModuleModel(vc: CGImageStudyViewController(), title: "CGImageStudyViewController", description: "CGImageStudyViewController功能描述")
-            
+        
         arraySection.append(model)
         
         array.append(arraySection)
@@ -78,7 +79,10 @@ class ViewController: BaseViewController, UITableViewDelegate, UITableViewDataSo
         guard let vc = VC else {
             return
         }
-        self.navigationController?.pushViewController(vc, animated: true)
+        NSLog("excute")
+        if self.parent != vc { // 防止连点造成的崩溃
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 
