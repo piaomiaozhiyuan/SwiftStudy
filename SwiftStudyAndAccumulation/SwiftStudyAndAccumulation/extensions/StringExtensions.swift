@@ -34,13 +34,14 @@ extension Optional where Wrapped == NSString {
         return false
     }
     
+    /// nil || 空串 || (null)
     var isAllEmpty: Bool {
         
         guard let string = self else {
             return true
         }
         
-        if string.length == 0 || string.isEqual(to: "(null)") {
+        if string.length == 0 || string.isEqual(to: "(null)") == true || string.isEqual(to: "<null>") == true {
             return true
         }
         

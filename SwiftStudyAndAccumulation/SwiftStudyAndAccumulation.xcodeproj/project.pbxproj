@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84729C201EA7642D00CBE210 /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84729C1F1EA7642D00CBE210 /* DictionaryExtensions.swift */; };
 		849F93531E97688600CDE58F /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F93521E97688600CDE58F /* BaseViewController.m */; };
 		849F935D1E976A7200CDE58F /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849F935A1E976A7200CDE58F /* StringExtensions.swift */; };
 		849F935E1E976A7200CDE58F /* UINavigationControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849F935B1E976A7200CDE58F /* UINavigationControllerExtensions.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		84729C1F1EA7642D00CBE210 /* DictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtensions.swift; sourceTree = "<group>"; };
 		849F93501E97688600CDE58F /* SwiftStudyAndAccumulation-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SwiftStudyAndAccumulation-Bridging-Header.h"; path = "../SwiftStudyAndAccumulation-Bridging-Header.h"; sourceTree = "<group>"; };
 		849F93511E97688600CDE58F /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		849F93521E97688600CDE58F /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				849F935A1E976A7200CDE58F /* StringExtensions.swift */,
 				849F935B1E976A7200CDE58F /* UINavigationControllerExtensions.swift */,
 				849F935C1E976A7200CDE58F /* URLExtensions.swift */,
+				84729C1F1EA7642D00CBE210 /* DictionaryExtensions.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 			files = (
 				849F935E1E976A7200CDE58F /* UINavigationControllerExtensions.swift in Sources */,
 				849F93621E976BE800CDE58F /* CGImageStudyViewController.swift in Sources */,
+				84729C201EA7642D00CBE210 /* DictionaryExtensions.swift in Sources */,
 				849F935F1E976A7200CDE58F /* URLExtensions.swift in Sources */,
 				849F935D1E976A7200CDE58F /* StringExtensions.swift in Sources */,
 				849F93531E97688600CDE58F /* BaseViewController.m in Sources */,
