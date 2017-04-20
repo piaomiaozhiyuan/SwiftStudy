@@ -34,7 +34,7 @@ extension Optional where Wrapped == NSString {
         return false
     }
     
-    /// nil || 空串 || (null)
+    /// nil || 空串 || (null) || <null>
     var isAllEmpty: Bool {
         
         guard let string = self else {

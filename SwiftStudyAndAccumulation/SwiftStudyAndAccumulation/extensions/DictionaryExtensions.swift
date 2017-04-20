@@ -8,16 +8,6 @@
 
 import UIKit
 
-class DictionaryExtensions: NSObject {
-
-}
-
-extension Array {
-    var lastIndex: Int {
-        return self.count - 1
-    }
-}
-
 extension Dictionary {
     /// 获取嵌套字典的value，
     ///
