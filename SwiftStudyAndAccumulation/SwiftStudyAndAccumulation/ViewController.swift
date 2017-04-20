@@ -22,6 +22,7 @@ class ViewController: BaseViewController, UITableViewDelegate, UITableViewDataSo
         
         self.navigationItem.title = "功能列表"
         self.initData()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,9 +36,12 @@ class ViewController: BaseViewController, UITableViewDelegate, UITableViewDataSo
         
         /**这么写有个问题，viewcontroller返回的时候，不会被销毁；但是这里为了写的方便暂时这么操作。*/
         // 学习CGImage
-        let model: ModuleModel = ModuleModel(vc: CGImageStudyViewController(), title: "CGImageStudyViewController", description: "CGImageStudyViewController功能描述")
+        let model1: ModuleModel = ModuleModel(vc: CGImageStudyViewController(), title: "CGImageStudyViewController", description: "CGImageStudyViewController功能描述")
+        // 验证扩展
+        let model2: ModuleModel = ModuleModel(vc: TestExtensionsVC(), title: "TestExtensionsVC", description: "验证扩展功能")
         
-        arraySection.append(model)
+        arraySection.append(model1)
+        arraySection.append(model2)
         
         array.append(arraySection)
     }
