@@ -44,7 +44,7 @@ class CGImageManager: NSObject {
 //        
 ////        let cgImage: CGImage
 //        
-        let colorSpace: CGColorSpace = CGColorSpaceCreateDeviceRGB()
+//        let colorSpace: CGColorSpace = CGColorSpaceCreateDeviceRGB()
         let rawPointer = UnsafeMutableRawPointer.allocate(bytes: width * height * 4, alignedTo: Int(UINT32_MAX))
         /**RGBA*/
 //         let cgImage: CGImage = CGImage(width: width,
