@@ -26,6 +26,16 @@
     // Dispose of any resources that can be recreated.
 }
 
++(UIViewController *)getPresentedViewController {
+    UIViewController *appRootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+    UIViewController *topVC = appRootVC;
+    if (topVC.presentedViewController) {
+        topVC = topVC.presentedViewController;
+    }
+    
+    return topVC;
+}
+
 /*
 #pragma mark - Navigation
 

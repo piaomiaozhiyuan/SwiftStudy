@@ -23,6 +23,7 @@ class ViewController: BaseViewController, UITableViewDelegate, UITableViewDataSo
         self.navigationItem.title = "功能列表"
         self.initData()
         
+        NSLog("\(NSHomeDirectory())")
     }
 
     override func didReceiveMemoryWarning() {

@@ -13,6 +13,8 @@ class CGImageStudyViewController: BaseViewController {
     
     var imageView: UIImageView!
     
+    var label: UILabel!
+    
     // MARK: - LifeCycle
 
     override func viewDidLoad() {
@@ -22,6 +24,7 @@ class CGImageStudyViewController: BaseViewController {
         self.navigationItem.title = "学习CGImage"
         
         createUI()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,6 +57,10 @@ class CGImageStudyViewController: BaseViewController {
         imageView.image = UIImage(named: "test2")
         self.view.addSubview(imageView)
         
+        label = UILabel(frame: CGRect(x: 0, y: 120, width: 100, height: 44))
+        label.textColor = UIColor.black
+        label.backgroundColor = UIColor.green
+        self.view.addSubview(label)
         
     }
     

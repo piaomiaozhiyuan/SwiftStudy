@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840DB9211EB0635A0057428F /* UITextFeildExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840DB9201EB0635A0057428F /* UITextFeildExtensions.swift */; };
+		8458AF561EB963EF0073B238 /* MyAlertCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8458AF551EB963EF0073B238 /* MyAlertCenter.m */; };
+		8465C6BD1EAF2287007E2362 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8465C6BC1EAF2287007E2362 /* Settings.bundle */; };
+		846AC1721EA9957200E1E81C /* ColorRGBExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AC1711EA9957200E1E81C /* ColorRGBExtensions.swift */; };
+		846AC1751EA995D000E1E81C /* PMUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846AC1741EA995D000E1E81C /* PMUtils.swift */; };
 		84729C201EA7642D00CBE210 /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84729C1F1EA7642D00CBE210 /* DictionaryExtensions.swift */; };
 		849F93531E97688600CDE58F /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849F93521E97688600CDE58F /* BaseViewController.m */; };
 		849F935D1E976A7200CDE58F /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849F935A1E976A7200CDE58F /* StringExtensions.swift */; };
@@ -44,6 +49,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		840DB9201EB0635A0057428F /* UITextFeildExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFeildExtensions.swift; sourceTree = "<group>"; };
+		8458AF541EB963EF0073B238 /* MyAlertCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAlertCenter.h; sourceTree = "<group>"; };
+		8458AF551EB963EF0073B238 /* MyAlertCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAlertCenter.m; sourceTree = "<group>"; };
+		8465C6BC1EAF2287007E2362 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = ../Settings.bundle; sourceTree = "<group>"; };
+		846AC1711EA9957200E1E81C /* ColorRGBExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorRGBExtensions.swift; sourceTree = "<group>"; };
+		846AC1741EA995D000E1E81C /* PMUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PMUtils.swift; sourceTree = "<group>"; };
 		84729C1F1EA7642D00CBE210 /* DictionaryExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtensions.swift; sourceTree = "<group>"; };
 		849F93501E97688600CDE58F /* SwiftStudyAndAccumulation-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SwiftStudyAndAccumulation-Bridging-Header.h"; path = "../SwiftStudyAndAccumulation-Bridging-Header.h"; sourceTree = "<group>"; };
 		849F93511E97688600CDE58F /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
@@ -96,6 +107,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		846AC1731EA995A600E1E81C /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				846AC1741EA995D000E1E81C /* PMUtils.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
 		849F934D1E97683E00CDE58F /* OC */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +137,7 @@
 		849F93551E9769DD00CDE58F /* sys */ = {
 			isa = PBXGroup;
 			children = (
+				8465C6BC1EAF2287007E2362 /* Settings.bundle */,
 				849F93501E97688600CDE58F /* SwiftStudyAndAccumulation-Bridging-Header.h */,
 				84BB08011E8F90D200E88C5E /* Main.storyboard */,
 				84BB08041E8F90D200E88C5E /* Assets.xcassets */,
@@ -151,6 +171,8 @@
 				849F935C1E976A7200CDE58F /* URLExtensions.swift */,
 				84729C1F1EA7642D00CBE210 /* DictionaryExtensions.swift */,
 				84E884031EA887EA000C25CF /* ArrayExtensions.swift */,
+				846AC1711EA9957200E1E81C /* ColorRGBExtensions.swift */,
+				840DB9201EB0635A0057428F /* UITextFeildExtensions.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -189,10 +211,13 @@
 			children = (
 				84BB07FD1E8F90D200E88C5E /* AppDelegate.swift */,
 				84BB07FF1E8F90D200E88C5E /* ViewController.swift */,
+				8458AF541EB963EF0073B238 /* MyAlertCenter.h */,
+				8458AF551EB963EF0073B238 /* MyAlertCenter.m */,
 				849F93541E9768CB00CDE58F /* resources */,
 				849F934D1E97683E00CDE58F /* OC */,
 				849F93571E976A1400CDE58F /* swift */,
 				849F93591E976A4D00CDE58F /* extensions */,
+				846AC1731EA995A600E1E81C /* utils */,
 			);
 			path = SwiftStudyAndAccumulation;
 			sourceTree = "<group>";
@@ -337,6 +362,7 @@
 			files = (
 				84BB08081E8F90D200E88C5E /* LaunchScreen.storyboard in Resources */,
 				84BB08051E8F90D200E88C5E /* Assets.xcassets in Resources */,
+				8465C6BD1EAF2287007E2362 /* Settings.bundle in Resources */,
 				84E884021EA87B9D000C25CF /* TestExtensionsVC.xib in Resources */,
 				84BB08031E8F90D200E88C5E /* Main.storyboard in Resources */,
 			);
@@ -363,15 +389,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				846AC1751EA995D000E1E81C /* PMUtils.swift in Sources */,
 				849F935E1E976A7200CDE58F /* UINavigationControllerExtensions.swift in Sources */,
 				849F93621E976BE800CDE58F /* CGImageStudyViewController.swift in Sources */,
+				8458AF561EB963EF0073B238 /* MyAlertCenter.m in Sources */,
 				84729C201EA7642D00CBE210 /* DictionaryExtensions.swift in Sources */,
 				849F935F1E976A7200CDE58F /* URLExtensions.swift in Sources */,
 				849F935D1E976A7200CDE58F /* StringExtensions.swift in Sources */,
 				84E884041EA887EA000C25CF /* ArrayExtensions.swift in Sources */,
+				840DB9211EB0635A0057428F /* UITextFeildExtensions.swift in Sources */,
 				849F93531E97688600CDE58F /* BaseViewController.m in Sources */,
 				84E884011EA87B9D000C25CF /* TestExtensionsVC.swift in Sources */,
 				849F93641E9784E100CDE58F /* CGImageStudyManager.swift in Sources */,
+				846AC1721EA9957200E1E81C /* ColorRGBExtensions.swift in Sources */,
 				84BB08001E8F90D200E88C5E /* ViewController.swift in Sources */,
 				84BB07FE1E8F90D200E88C5E /* AppDelegate.swift in Sources */,
 			);
@@ -534,7 +564,7 @@
 				INFOPLIST_FILE = SwiftStudyAndAccumulation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.piaomiao.SwiftStudyAndAccumulation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.piaomiao.SwiftStudy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftStudyAndAccumulation/SwiftStudyAndAccumulation-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -551,7 +581,7 @@
 				INFOPLIST_FILE = SwiftStudyAndAccumulation/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.piaomiao.SwiftStudyAndAccumulation;
+				PRODUCT_BUNDLE_IDENTIFIER = com.piaomiao.SwiftStudy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftStudyAndAccumulation/SwiftStudyAndAccumulation-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

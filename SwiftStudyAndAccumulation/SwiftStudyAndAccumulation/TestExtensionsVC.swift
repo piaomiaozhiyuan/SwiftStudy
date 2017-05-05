@@ -32,8 +32,9 @@ class TestExtensionsVC: BaseViewController {
     
     
     func testDictionaryExtension() {
-        
+        // 测试的嵌套字典
         let dic: Dictionary = ["key1":"1","key2":["key3":"3","key5":"5","key6":6],"key4":4] as [String : AnyObject]
+        // 测试
         if let obj = dic.getValue(withKeys: ["key2","key6"]) {
             if obj is String {
                 print("String---\(obj)")
