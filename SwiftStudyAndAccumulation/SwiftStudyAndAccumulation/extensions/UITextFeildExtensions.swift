@@ -13,8 +13,6 @@ class UITextFeildExtensions: NSObject {
 }
 
 extension UITextFieldDelegate {
-    @available(iOS 2.0, *)
-    public func textFieldDidBeginEditing(_ textField: UITextField) {
-        
-    }
+
+
 }

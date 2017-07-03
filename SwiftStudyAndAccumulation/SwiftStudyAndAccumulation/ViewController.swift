@@ -24,6 +24,12 @@ class ViewController: BaseViewController, UITableViewDelegate, UITableViewDataSo
         self.initData()
         
         NSLog("\(NSHomeDirectory())")
+        
+        let assumedString: String! = "An implicitly unwrapped optionalstring."
+        let a = assumedString
+        NSLog("\(assumedString)")
+        
+//        tableView.bounces = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,8 +47,16 @@ class ViewController: BaseViewController, UITableViewDelegate, UITableViewDataSo
         // 验证扩展
         let model2: ModuleModel = ModuleModel(vc: TestExtensionsVC(), title: "TestExtensionsVC", description: "验证扩展功能")
         
+        // 线程学习
+        let threadStudyVC: ThreadStudyVC = ThreadStudyVC()
+        let model3: ModuleModel = ModuleModel(vc: threadStudyVC, title: "ThreadStudyVC", description: "线程学习")
+        
+        // 滚动列表扩展（既可翻页，也可以任意值偏移）
+        
+        
         arraySection.append(model1)
         arraySection.append(model2)
+        arraySection.append(model3)
         
         array.append(arraySection)
     }
@@ -85,6 +99,9 @@ class ViewController: BaseViewController, UITableViewDelegate, UITableViewDataSo
             return
         }
         NSLog("excute")
+        
+        
+        
         if self.parent != vc { // 防止连点造成的崩溃
             self.navigationController?.pushViewController(vc, animated: true)
         }

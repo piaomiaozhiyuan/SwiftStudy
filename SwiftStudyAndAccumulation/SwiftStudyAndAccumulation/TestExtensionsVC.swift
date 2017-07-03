@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TestExtensionsVC: BaseViewController {
+class TestExtensionsVC: BaseViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +17,14 @@ class TestExtensionsVC: BaseViewController {
         self.navigationItem.title = "验证扩展功能"
         
         self.testDictionaryExtension()
+        
+//        let <#view#>: <#Class#> = <#Class#>(frame: CGRect(x: <#T##Int#>, y: <#T##Int#>, width: <#T##Int#>, height: <#T##Int#>))
+        
+        let view: UITextField = UITextField(frame: CGRect(x: 0, y: 100, width: 100, height: 44))
+        view.delegate = self
+        view.backgroundColor = UIColor.black
+        self.view.addSubview(view)
+        
     }
 
     override func didReceiveMemoryWarning() {
