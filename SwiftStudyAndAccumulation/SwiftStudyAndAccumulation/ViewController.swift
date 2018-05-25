@@ -7,12 +7,23 @@
 //
 
 import UIKit
+import AVFoundation
+
+class Student: NSObject {
+    var name: String
+    var age: Int
+    
+    init(name: String, age: Int) {
+        self.name = name
+        self.age = age
+    }
+}
 
 class ViewController: BaseViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var array: Array<Array<ModuleModel>> = [[]]
+    var array: [[ModuleModel]] = [[]]
     
     
     // MARK: - LifeCycle
@@ -21,15 +32,33 @@ class ViewController: BaseViewController, UITableViewDelegate, UITableViewDataSo
         super.viewDidLoad()
         
         self.navigationItem.title = "功能列表"
+        
         self.initData()
         
-        NSLog("\(NSHomeDirectory())")
+        print("\(NSHomeDirectory())")
         
         let assumedString: String! = "An implicitly unwrapped optionalstring."
         let a = assumedString
-        NSLog("\(assumedString)")
+        print("\(assumedString)")
         
+        self.setupNotifications()
 //        tableView.bounces = false
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if #available(iOS 11.0, *) {
+            print("safeArea = \(self.view.safeAreaInsets)")
+        } else {
+            // Fallback on earlier versions
+        }
+        
+        if #available(iOS 11.0, *) {
+            print("KeyWindowsafeArea = \(String(describing: UIApplication.shared.keyWindow?.safeAreaInsets))")
+        } else {
+            // Fallback on earlier versions
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -39,7 +68,7 @@ class ViewController: BaseViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     func initData() {
-        var arraySection: Array<ModuleModel> = []
+        var arraySection: [ModuleModel] = []
         
         /**这么写有个问题，viewcontroller返回的时候，不会被销毁；但是这里为了写的方便暂时这么操作。*/
         // 学习CGImage
@@ -53,10 +82,19 @@ class ViewController: BaseViewController, UITableViewDelegate, UITableViewDataSo
         
         // 滚动列表扩展（既可翻页，也可以任意值偏移）
         
+        // 归解档
+        let keyedArchiverVC: KeyedArchiverVC = KeyedArchiverVC()
+        let model4: ModuleModel = ModuleModel(vc: keyedArchiverVC, title: "KeyedArchiverVC", description: "持久化学习")
         
-        arraySection.append(model1)
-        arraySection.append(model2)
-        arraySection.append(model3)
+        // 数组操作
+        let arrayStudyVC: ArrayStudyVC = ArrayStudyVC()
+        let model5: ModuleModel = ModuleModel(vc: arrayStudyVC, title: "ArrayStudyVC", description: "数组学习")
+        
+        // 下载器实现
+        let downloaderVC: DownloaderTestVC = DownloaderTestVC()
+        let model6: ModuleModel = ModuleModel(vc: downloaderVC, title: "DownloaderTestVC", description: "运用URLSession下载数据踩坑之路")
+        
+        arraySection = [model1, model2, model3, model4, model5, model6]
         
         array.append(arraySection)
     }
@@ -98,7 +136,7 @@ class ViewController: BaseViewController, UITableViewDelegate, UITableViewDataSo
         guard let vc = VC else {
             return
         }
-        NSLog("excute")
+        print("excute")
         
         
         
@@ -106,6 +144,33 @@ class ViewController: BaseViewController, UITableViewDelegate, UITableViewDataSo
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
+    
+    func setupNotifications() {
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(handleSecondaryAudio),
+                                               name: .AVAudioSessionSilenceSecondaryAudioHint,
+                                               object: AVAudioSession.sharedInstance())
+    }
+    
+    @objc func handleSecondaryAudio(notification: Notification) {
+        // Determine hint type
+        guard let userInfo = notification.userInfo,
+            let typeValue = userInfo[AVAudioSessionSilenceSecondaryAudioHintTypeKey] as? UInt,
+            let type = AVAudioSessionSilenceSecondaryAudioHintType(rawValue: typeValue) else {
+                return
+        }
+        
+        if type == .begin {
+            // Other app audio started playing - mute secondary audio
+            print("Other app audio started playing - mute secondary audio")
+        } else {
+            // Other app audio stopped playing - restart secondary audio
+            print("Other app audio stopped playing - restart secondary audio")
+        }
+    }
+    
 }
 
 
@@ -115,5 +180,8 @@ struct ModuleModel {
     let title: String?
     let description: String?
 }
+
+
+
 
 

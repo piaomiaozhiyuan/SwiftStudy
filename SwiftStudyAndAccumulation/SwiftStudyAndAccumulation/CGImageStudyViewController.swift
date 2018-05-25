@@ -67,7 +67,7 @@ class CGImageStudyViewController: BaseViewController {
     // MARK: - 点击事件
     
     /// 查看image属性
-    func lookImagePropertiesButtonClick(_ sender: UIButton) {
+    @objc func lookImagePropertiesButtonClick(_ sender: UIButton) {
         if let image: UIImage = UIImage(named: "test1") {
             if let temImg: CGImage = image.cgImage {
                 
@@ -82,7 +82,7 @@ class CGImageStudyViewController: BaseViewController {
     }
     
     
-    func lookButtonClick(_ sender: UIButton) {
+    @objc func lookButtonClick(_ sender: UIButton) {
 //        if let image: UIImage = UIImage(named: "png1") {
 //            
 //        }

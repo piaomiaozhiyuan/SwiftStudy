@@ -13,4 +13,9 @@ extension Array {
     var lastIndex: Int {
         return self.count - 1
     }
+    
+    public func containsType<T>(of element: T) -> Bool {
+        let elementType = type(of: element)
+        return contains { type(of: $0) == elementType}
+    }
 }

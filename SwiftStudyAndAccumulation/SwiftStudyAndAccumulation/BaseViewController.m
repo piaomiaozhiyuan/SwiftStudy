@@ -34,9 +34,9 @@
     dispatch_source_set_event_handler(_timer, ^{
         //在这里执行事件
         // 主线程执行：
-        if (_currentMode != [NSRunLoop mainRunLoop].currentMode) {
+        if (self->_currentMode != [NSRunLoop mainRunLoop].currentMode) {
             NSLog(@"runloop的Mode：%@",[NSRunLoop mainRunLoop].currentMode);
-            _currentMode = [NSRunLoop mainRunLoop].currentMode;
+            self->_currentMode = [NSRunLoop mainRunLoop].currentMode;
         }
 //        NSLog(@"当前runloop的Mode：%@",[NSRunLoop currentRunLoop].currentMode);
 //        NSLog(@"runloop的Mode：%@",[NSRunLoop mainRunLoop].currentMode);

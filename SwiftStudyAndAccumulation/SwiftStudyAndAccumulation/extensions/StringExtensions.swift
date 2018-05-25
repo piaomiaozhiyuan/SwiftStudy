@@ -27,6 +27,10 @@ extension Optional where Wrapped == NSString {
             return true
         }
         
+        guard string != NSNull() else {
+            return true
+        }
+        
         if string.length == 0 {
             return true
         }
@@ -38,6 +42,10 @@ extension Optional where Wrapped == NSString {
     var isAllEmpty: Bool {
         
         guard let string = self else {
+            return true
+        }
+        
+        guard string != NSNull() else {
             return true
         }
         
