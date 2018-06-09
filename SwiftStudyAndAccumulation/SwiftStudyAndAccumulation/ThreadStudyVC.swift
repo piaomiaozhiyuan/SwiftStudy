@@ -23,23 +23,43 @@ class ThreadStudyVC: BaseViewController {
         self.navigationItem.title = "线程学习"
         self.view.backgroundColor = UIColor.white
         
-        for index in 0 ..< 10 {
+        
+        var buttonTitles: [String] = ["group-notify", "group-wait", "group enter leave", "group test", "dispatch_semaphore"]
+
+        
+        var validHeight: CGFloat = self.view.bounds.size.height - 88 - 100
+        if #available(iOS 11.0, *) {
+            validHeight = validHeight - self.view.safeAreaInsets.bottom
+        }
+        
+        var newlineIndex: Int? = nil
+        var needNewline: Bool = false
+        let viewWidth: Int = Int(self.view.bounds.size.width)
+        let interval: Int = 10
+        let buttonWidth: Int = (viewWidth - 3 * interval) / 2
+        
+        for index in 0 ..< buttonTitles.count {
             let btn = UIButton(type: .custom)
-            btn.frame = CGRect(x: 10, y: 60 + index * 50, width: 150, height: 44)
-            btn.backgroundColor = UIColor.purple
-            btn.setTitle("\(index)", for: .normal)
-            btn.tag = index + 1000
-            btn.addTarget(self, action: #selector(KeyedArchiverVC.actionHandle(_:)), for: .touchUpInside)
-            self.view.addSubview(btn)
-            
-            let tag = btn.tag - 1000
-            if tag == 0 {
-                btn.setTitle("group-notify", for: .normal)
-            } else if tag == 1 {
-                btn.setTitle("group-wait", for: .normal)
-            } else if tag == 2 {
-                btn.setTitle("group enter leave", for: .normal)
+            if !needNewline {
+                needNewline = CGFloat(index * 60) + 44 > validHeight
+                newlineIndex = index
             }
+            let columns = needNewline ? 1 : 0
+            let row: Int = (needNewline && newlineIndex != nil && newlineIndex! != 0) ? index % newlineIndex! : index
+            
+            btn.frame = CGRect(x: interval + columns * (interval + buttonWidth) ,
+                               y: 88 + row * 60,
+                               width: buttonWidth, height: 44)
+            btn.backgroundColor = UIColor.purple
+            if index >= buttonTitles.count {
+                btn.setTitle("\(index)", for: .normal)
+            } else {
+                btn.setTitle("\(buttonTitles[index])", for: .normal)
+            }
+            
+            btn.tag = index + 1000
+            btn.addTarget(self, action: #selector(ThreadStudyVC.actionHandle(_:)), for: .touchUpInside)
+            self.view.addSubview(btn)
         }
         myQueue = DispatchQueue(label: "第二条线程", attributes: .concurrent)
         
@@ -65,6 +85,9 @@ class ThreadStudyVC: BaseViewController {
             }
             
         } else if tag == 4 {
+            DispatchSemaphore.init(value: 0)
+            let queue = DispatchQueue.global()
+            
             
         } else if tag == 5 {
             

@@ -15,6 +15,7 @@ class DownloaderVC: UIViewController {
     var allowsCellularAccess: Bool = false
     
     var downloadTask: URLSessionDownloadTask!
+    var dataTask: URLSessionDataTask!
     var resumeData: Data?
     
     lazy var progressView: UIProgressView = {
@@ -43,7 +44,9 @@ class DownloaderVC: UIViewController {
         self.navigationItem.title = "运用URLSession下载数据"
         self.view.backgroundColor = UIColor.white
         
+        _ = createSession()
         
+        NotificationCenter.default.addObserver(self, selector: Selector.applicationWillTerminateSelector, name: NSNotification.Name.applicationWillTerminateNotifName, object: nil)
         
         
         let librarydir: String = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true).first!
@@ -59,7 +62,7 @@ class DownloaderVC: UIViewController {
         let viewWidth: Int = Int(self.view.bounds.size.width)
         let interval: Int = 10
         let buttonWidth: Int = (viewWidth - 3 * interval) / 2
-        var buttonTitles: [String] = ["开始下载", "暂停下载", "挂起", "恢复", "取消", "序列化resumeData", "不允许蜂窝下载", "当前任务列表", "session置nil"]
+        var buttonTitles: [String] = ["开始下载", "暂停下载", "挂起", "恢复", "取消", "序列化resumeData", "不允许蜂窝下载", "当前任务列表", "session置nil", "headerRange创建任务", "获取header信息"]
         
         for index in 0 ..< 13 {
             let btn = UIButton(type: .custom)
@@ -137,6 +140,27 @@ class DownloaderVC: UIViewController {
             readDownloadTask()
         } else if tag == 8 {
             downloadSession.finishTasksAndInvalidate()
+        } else if tag == 9 {
+            // 1、判断resumeData是否存在(若不存在resumeData走2)
+            // 2、判断对应的.tmp文件是否存在
+            //
+            resumeWithTmp()
+        } else if tag == 10 { // 获取header
+            
+            let url: URL? = URL(string: "http://127.0.0.1/dataStore/shipin.mp4")
+            if let url = url {
+                var request = URLRequest(url: url)
+                request.httpMethod = "HEAD"
+                let config = URLSessionConfiguration.default
+                let session = URLSession(configuration: config)
+                
+                let task = session.dataTask(with: request) { (data, responde, error) in
+                    print("当前线程 == \(Thread.current)")
+                }
+                task.resume()
+            }
+            
+            
         }
     }
 
@@ -153,6 +177,24 @@ extension DownloaderVC {
             
 //            request.httpMethod = "HEAD"
 //            let task = session.dataTask(with: request)
+            
+//            let task = downloadSession.downloadTask(with: request)
+//            task.resume()
+//            downloadTask = task
+            let _dataTask = downloadSession.dataTask(with: request)
+            _dataTask.resume()
+            dataTask = _dataTask
+        }
+    }
+    
+    func resumeWithTmp() {
+        let url: URL? = URL(string: "http://sw.bos.baidu.com/sw-search-sp/software/50045684f7da6/QQ_mac_5.4.1.dmg")
+        if let url = url {
+            var request = URLRequest(url: url)
+            var allHTTPHeaderFields: [String: AnyObject] = [:]
+            //设置下载的字节范围 从 self.currentLength 开始之后所有的字节
+            let rangeString = "bytes=\(10000000)-"
+            request.setValue(rangeString, forHTTPHeaderField: "Range")
             
             let task = downloadSession.downloadTask(with: request)
             task.resume()
@@ -323,7 +365,7 @@ extension DownloaderVC {
 }
 
 
-extension DownloaderVC: URLSessionDownloadDelegate {
+extension DownloaderVC: URLSessionDataDelegate {
     /**URLSessionDelegate began*/
     // Tells the URL session that the session has been invalidated.
     /**
@@ -415,7 +457,7 @@ extension DownloaderVC: URLSessionDownloadDelegate {
              */
             
             if error.userInfo.keys.contains(NSURLSessionDownloadTaskResumeData) {
-                self.resumeData  = error.userInfo[NSURLSessionDownloadTaskResumeData] as? Data
+                self.resumeData = error.userInfo[NSURLSessionDownloadTaskResumeData] as? Data
                 if allowsCellularAccess {
                     resume()
                     allowsCellularAccess = false
@@ -428,36 +470,37 @@ extension DownloaderVC: URLSessionDownloadDelegate {
     
     /**URLSessionTaskDelegate end*/
     
-//    /**URLSessionDataDelegate began*/
-//
-//    @available(iOS 7.0, *)
-//    /*optional public*/ func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Swift.Void) {
-//        print("\n\(#function) --- \(#line)")
-//    }
-//
-//
-//    @available(iOS 7.0, *)
-//    /*optional public*/ func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didBecome downloadTask: URLSessionDownloadTask) {
-//        print("\n\(#function) --- \(#line)")
-//    }
-//
-//
-//    @available(iOS 9.0, *)
-//    /*optional public*/ func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didBecome streamTask: URLSessionStreamTask) {
-//        print("\n\(#function) --- \(#line)")
-//    }
-//
-//
-//    @available(iOS 7.0, *)
-//    /*optional public*/ func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
-//        print("\n\(#function) --- \(#line)")
-//    }
-//
-//
-//    @available(iOS 7.0, *)
-//    /*optional public*/ func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, willCacheResponse proposedResponse: CachedURLResponse, completionHandler: @escaping (CachedURLResponse?) -> Swift.Void) {
-//        print("\n\(#function) --- \(#line)")
-//    }
+    /**URLSessionDataDelegate began*/
+
+    @available(iOS 7.0, *)
+    /*optional public*/ func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Swift.Void) {
+        print("\n\(#function) --- \(#line)")
+        completionHandler(.allow)
+    }
+
+
+    @available(iOS 7.0, *)
+    /*optional public*/ func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didBecome downloadTask: URLSessionDownloadTask) {
+        print("\n\(#function) --- \(#line)")
+    }
+
+
+    @available(iOS 9.0, *)
+    /*optional public*/ func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didBecome streamTask: URLSessionStreamTask) {
+        print("\n\(#function) --- \(#line)")
+    }
+
+
+    @available(iOS 7.0, *)
+    /*optional public*/ func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
+        print("\n\(#function) --- \(#line)")
+    }
+
+
+    @available(iOS 7.0, *)
+    /*optional public*/ func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, willCacheResponse proposedResponse: CachedURLResponse, completionHandler: @escaping (CachedURLResponse?) -> Swift.Void) {
+        print("\n\(#function) --- \(#line)")
+    }
     /**URLSessionDataDelegate end*/
     
     @available(iOS 7.0, *)
@@ -487,9 +530,22 @@ extension DownloaderVC: URLSessionDownloadDelegate {
     }
 }
 
-//extension URLSession {
-//    static let ex: URLSession = {
-//
-//    }()
-//}
+// MARK: - 响应事件
+extension DownloaderVC {
+    /// 通知响应：程序将要被kill
+    @objc func applicationWillTerminate() {
+        print("MBDataStore 应用将要结束applicationWillTerminate")
+//        self.downloadTask.cancel { (resumeData) in }
+    }
+}
+
+fileprivate extension Notification.Name {
+    /// 应用将要被杀死
+    static let applicationWillTerminateNotifName = NSNotification.Name.UIApplicationWillTerminate
+}
+
+fileprivate extension Selector {
+    /// 应用将要被杀死
+    static let applicationWillTerminateSelector = #selector(DownloaderVC.applicationWillTerminate)
+}
 

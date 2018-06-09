@@ -35,7 +35,7 @@ class ArrayStudyVC: UIViewController {
             } else if tag == 1 {
                 btn.setTitle("空数组插入", for: .normal)
             } else if tag == 2 {
-                
+                btn.setTitle("多线程与数组", for: .normal)
             } else if tag == 3 {
                 
             } else if tag == 4 {
@@ -61,6 +61,8 @@ class ArrayStudyVC: UIViewController {
             emptyArray.insert("1", at: 0)
             NSLog("emptyArray = \(emptyArray)")
         } else if tag == 2 {
+            // 多线程与数组
+            // 
             
         } else if tag == 3 {
             

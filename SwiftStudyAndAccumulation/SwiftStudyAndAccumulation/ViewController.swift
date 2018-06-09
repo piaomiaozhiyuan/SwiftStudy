@@ -94,7 +94,11 @@ class ViewController: BaseViewController, UITableViewDelegate, UITableViewDataSo
         let downloaderVC: DownloaderTestVC = DownloaderTestVC()
         let model6: ModuleModel = ModuleModel(vc: downloaderVC, title: "DownloaderTestVC", description: "运用URLSession下载数据踩坑之路")
         
-        arraySection = [model1, model2, model3, model4, model5, model6]
+        // 指针学习
+        let unsafePointerViewController: UnsafePointerViewController = UnsafePointerViewController()
+        let model7: ModuleModel = ModuleModel(vc: unsafePointerViewController, title: "UnsafePointerViewController", description: "Swift中的指针问题")
+        
+        arraySection = [model1, model2, model3, model4, model5, model6, model7]
         
         array.append(arraySection)
     }
@@ -180,8 +184,6 @@ struct ModuleModel {
     let title: String?
     let description: String?
 }
-
-
 
 
 

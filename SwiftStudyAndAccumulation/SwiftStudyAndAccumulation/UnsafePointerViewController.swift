@@ -1,37 +1,20 @@
 //
-//  KeyedArchiverVC.swift
+//  UnsafePointerViewController.swift
 //  SwiftStudyAndAccumulation
 //
-//  Created by wangzhen on 2018/4/25.
+//  Created by wangzhen on 2018/6/8.
 //  Copyright © 2018年 mapbar. All rights reserved.
 //
 
 import UIKit
 
-/// 模型数组序列化与反序列化
-protocol ModelsCodable {
-    /// 将遵守Encodable类型的数据json序列化
-    static func encodeModelsToJSONArray<T: Codable>(_ items: [T]) -> Data?
-    /// 将遵循Decodable模型从json反序列化成模型数组
-    static func decodeJsonToModels<T: Codable>() -> ((_ data: Data) -> [T])
-}
-
-/// 模型序列化与反序列化
-protocol ModelCodable {
-    /// 将遵守Encodable类型的数据json序列化
-    func encodeModelsToJSONDictionary<T: Codable>(_ item: T) -> Data?
-    /// 将遵循Decodable模型从json反序列化成模型
-    func decodeJsonToModel<T: Codable>(_ data: Data, _ transform: (_ models: T) -> Void)
-}
-
-class KeyedArchiverVC: UIViewController {
-    
+class UnsafePointerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.navigationItem.title = "Archives and Serialization"
+        self.navigationItem.title = "Swift指针学习"
         self.view.backgroundColor = UIColor.white
         setupUI()
     }
@@ -47,7 +30,7 @@ class KeyedArchiverVC: UIViewController {
         let viewWidth: Int = Int(self.view.bounds.size.width)
         let interval: Int = 10
         let buttonWidth: Int = (viewWidth - 3 * interval) / 2
-        var buttonTitles: [String] = ["encode", "decode"]
+        var buttonTitles: [String] = ["data转bytes"]
         
         for index in 0 ..< 13 {
             let btn = UIButton(type: .custom)
@@ -78,13 +61,9 @@ class KeyedArchiverVC: UIViewController {
         print("\(sender.titleLabel?.text ?? "")按钮被点击")
         let tag = sender.tag - 1000
         if tag == 0 {
-            
         } else if tag == 1 {
-            
         } else if tag == 2 {
-            
         } else if tag == 3 {
         }
     }
 }
-
